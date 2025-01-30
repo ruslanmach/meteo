@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>MeteoESP+</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="text_header">MeteoESP+</div>
+        <div class="button_header"><button class="button_header">Set</button></div>
+    </div>
+    <div class="main_area">
+        <div class="first_area">
+            <div class="temp_sensor">
+                <div class="text_area_sensor">Temperature Sensor</div>
+                <div class="img_sensor"><img src="img/sensor.png" alt="sensor"></div>
+                <div class="rectangle"></div>
+                <div class="temp_text_sensor">В розробці ;)</div> <!-- Це місце для температури -->
+            </div>
+            <div class="temp_outside">
+                <div class="text_area_outside">Temp Outside</div>
+                <div class="img_outside"><img src="img/cloud.png" alt="weather"></div>
+                <div class="temp_text_outside">-1°С</div>
+            </div>
+        </div>
+        <div class="relay_area">
+            <div class="text_area_relay">Relay</div>
+            <div class="img_relay_on"><button class="button_on"><img src="img/on.jpg" alt="on"></button></div>
+            <div class="img_relay_off"><button class="button_off"><img src="img/off.jpg" alt="off"></button></div>
+            <div class="text_status_relay">Увімкнено</div>
+            <div class="rectangle_color_status"></div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script> <!-- Підключаємо app.js -->
+</body>
+</html>

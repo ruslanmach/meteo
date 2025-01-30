@@ -1,0 +1,21 @@
+{
+	"siteId": "56807533-2c7b-4fce-a9d5-10cd61df02de",
+	"geolocation": {
+		"data": {
+			"city": "Sambir",
+			"country": {
+				"code": "UA",
+				"name": "Ukraine"
+			},
+			"subdivision": {
+				"code": "46",
+				"name": "Lviv"
+			},
+			"timezone": "Europe/Kyiv",
+			"latitude": 49.5206,
+			"longitude": 23.1993,
+			"postalCode": "81400"
+		},
+		"timestamp": 1738193711279
+	}
+}
