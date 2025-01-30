@@ -2,10 +2,10 @@ import express from 'express';
 import fetch from 'node-fetch';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import WebSocket from 'ws';
 
 const app = express();
 const port = process.env.PORT || 3000;
-
 
 // Отримуємо шлях до поточного файлу
 const __filename = fileURLToPath(import.meta.url);
@@ -25,6 +25,38 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
+});
+
+// Створюємо WebSocket сервер
+const wss = new WebSocket.Server({ noServer: true });
+
+wss.on('connection', (ws) => {
+    console.log("🚀 Підключення ESP через WebSocket");
+
+    // Обробка запитів від ESP
+    ws.on('message', (message) => {
+        console.log(`📩 Повідомлення від ESP: ${message}`);
+        if (message === 'status') {
+            // Відповідаємо ESP зі станом реле
+            ws.send('relay:on'); // Приклад команди для реле
+        }
+    });
+
+    ws.on('close', () => {
+        console.log("❌ Відключення ESP");
+    });
+});
+
+// Middleware для підтримки WebSocket
+app.server = app.listen(port, () => {
+    console.log(`Сервер запущено на http://localhost:${port}`);
+});
+
+// Встановлюємо WebSocket сервер для конкретного запиту
+app.server.on('upgrade', (request, socket, head) => {
+    wss.handleUpgrade(request, socket, head, (ws) => {
+        wss.emit('connection', ws, request);
+    });
 });
 
 // Обробник для реле
@@ -90,10 +122,3 @@ app.get('/state', async (req, res) => {
 app.use((req, res) => {
     res.status(404).send('Сторінку не знайдено');
 });
-
-// Запуск сервера
-app.listen(port, () => {
-    console.log(`Сервер запущено на http://localhost:${port}`);
-    console.log(`IP ESP: ${ESP_IP}`);
-});
-
