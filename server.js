@@ -4,7 +4,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
 
 // Отримуємо шлях до поточного файлу
 const __filename = fileURLToPath(import.meta.url);
