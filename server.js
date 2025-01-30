@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Конфігурація
-const ESP_IP = '192.168.0.108'; // Замініть на IP вашого ESP
+const ESP_IP = 'meteoesp.hopto.org'; // Домен No-IP
 const API_TIMEOUT = 10000; // Збільшений таймаут до 10 секунд
 
 // Middleware
