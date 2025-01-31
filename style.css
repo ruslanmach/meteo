@@ -215,9 +215,17 @@ body {
     .img_sensor {
 
     }
+    .img_outside img {
+        width: 80px;
+        height: 80px;
+    }
 
-    .img_relay_on img, .img_relay_off img {
-        width: 90px;
+    .img_relay_on img {
+        width: 100px;
+        height: 100px;
+    }
+    .img_relay_off img{
+        width: 106px;
         height: 100px;
     }
 }
