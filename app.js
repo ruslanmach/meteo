@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const relayButtonOff = document.querySelector('.button_off');
     const statusText = document.querySelector('.text_status_relay');
     const statusColor = document.querySelector('.rectangle_color_status');
-    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=kansas&units=metric&appid=";
+    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=popeli&units=metric&appid=";
     const apiKey = "56453dff84f2d81f438002ab827f8cc5";
     const tempOutside = document.querySelector('.temp_text_outside');
     // Автовизначення адреси сервера
