@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Автовизначення адреси сервера
     const serverIp = window.location.origin;
 
-    // Функція для оновлення статусу #f44336
+    // Функція для оновлення статусу
     function updateUI(isOn) {
         statusText.textContent = isOn ? 'Увімкнено' : 'Вимкнено';
         statusColor.style.backgroundColor = isOn ? '#4CAF50' : '#f44336';
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
             const data = await response.json();
-            updateUI(data.relayState === 1);
+            updateUI(data.relayState === '1');
             return data.relayState;
         } catch (error) {
             console.error('Помилка отримання статусу:', error);
@@ -60,7 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Первісне оновлення статусу (тільки один запит при завантаженні сторінки)
     fetchRelayState();
 
-    // Видалено автоматичне оновлення кожні 2 секунди
+    // Автоматичне оновлення статусу кожні 5 секунд
+    setInterval(fetchRelayState, 5000);
 
     // Обробка помилок мережі
     window.addEventListener('offline', () => {
