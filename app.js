@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const relayButtonOff = document.querySelector('.button_off');
     const statusText = document.querySelector('.text_status_relay');
     const statusColor = document.querySelector('.rectangle_color_status');
-
+    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=popeli&units=metric&appid=";
+    const apiKey = "56453dff84f2d81f438002ab827f8cc5";
+    const tempOutside = document.querySelector('.temp_text_outside');
     // Автовизначення адреси сервера
     const serverIp = window.location.origin;
 
@@ -13,8 +15,19 @@ document.addEventListener('DOMContentLoaded', function () {
         statusColor.style.backgroundColor = isOn ? '#4CAF50' : '#f44336';
         console.log(`Статус оновлено: ${isOn ? 'Увімкнено' : 'Вимкнено'}`);
     }
-
-    // Функція для отримання статусу
+    async function getWeather()  {
+        try{
+            const response = await fetch(apiUrl + apiKey);
+            const data = await response.json();
+            console.log(Math.round(data.main.temp))
+            tempOutside.innerText = Math.round(data.main.temp) + "°С";
+        } catch (error){
+            console.log(error)
+        }
+    }
+    getWeather();
+    // Фу
+    //нкція для отримання статусу
     async function fetchRelayState() {
         try {
             const response = await fetch(`${serverIp}/state`);
