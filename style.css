@@ -160,11 +160,17 @@ body {
     justify-content: space-between;
     width: 100%;
 }
-
-.img_relay_on img, .img_relay_off img {
+.img_relay_on img {
     width: 120px;
-    height: 130px;
+    height: 120px;
     background-color: #ddd;
+}
+ .img_relay_off img {
+    width: 125px;
+    height: 125px;
+    background-color: #ddd;
+     margin-top: 5px;
+     margin-bottom: 15px;
 }
 .button_on, .button_off {
     border: none;
@@ -180,8 +186,9 @@ body {
 
 .rectangle_color_status {
     width: 116px;
-    height: 7px;
+    height: 10px;
     background-color: green;
+    border-radius: 4px;
 }
 
 /* Media Query for smaller screens */
