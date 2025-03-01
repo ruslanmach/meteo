@@ -17,6 +17,7 @@ const mqttBroker = 'mqtt://broker.hivemq.com';
 const mqttClient = mqtt.connect(mqttBroker);
 
 const tempTopic = 'esp/temperature';
+const resetTopic = 'esp/reset';
 let latestTemperature = { T1: 0, T2: 0, T3: 0 };
 
 mqttClient.on('connect', () => {
@@ -37,6 +38,12 @@ mqttClient.on('message', (topic, message) => {
 
 app.get('/temperature', (req, res) => {
     res.json(latestTemperature);
+});
+
+app.get('/reset', (req, res) => {
+    console.log("Запит на скидання Wi-Fi!");
+    mqttClient.publish(resetTopic, 'RESET');
+    res.send("Скидання виконано!");
 });
 
 // Запуск сервера
