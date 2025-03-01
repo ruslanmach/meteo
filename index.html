@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,29 +16,13 @@
     <div class="main_area">
         <div class="img_main"><img class="img" src="img/MainIMG.png"/></div>
         <div class="text">
-            <div class="t1"><span id="temp1">-</span>°C</div>
-            <div class="t2"><span id="temp2">-</span>°C</div>
-            <div class="t3"><span id="temp3">-</span>°C</div>
+            <div class="t1">Завантаження...</div>
+            <div class="t2">Завантаження...</div>
+            <div class="t3">Завантаження...</div>
         </div>
     </div>
 </div>
 
-<script>
-    async function fetchTemperature() {
-        try {
-            const response = await fetch('http://localhost:3000/temperature');
-            const data = await response.json();
-            document.getElementById('temp1').textContent = data.T1 !== null ? data.T1 : '-';
-            document.getElementById('temp2').textContent = data.T2 !== null ? data.T2 : '-';
-            document.getElementById('temp3').textContent = data.T3 !== null ? data.T3 : '-';
-        } catch (error) {
-            console.error('Помилка отримання температури:', error);
-        }
-    }
-    // Оновлення температури кожні 5 секунд
-    setInterval(fetchTemperature, 5000);
-    fetchTemperature();
-</script>
-
+<script src="app.js"></script>
 </body>
 </html>
