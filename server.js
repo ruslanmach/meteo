@@ -2,6 +2,7 @@ import express from 'express';
 import mqtt from 'mqtt';
 import cors from 'cors';
 
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -37,4 +38,8 @@ app.get('/temperature', (req, res) => {
 
 app.listen(port, () => {
     console.log(`Сервер запущено на http://localhost:${port}`);
+});
+
+app.get('/', (req, res) => {
+    res.send('Сервер працює! Використовуй /temperature для отримання даних.');
 });
