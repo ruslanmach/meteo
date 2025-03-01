@@ -49,147 +49,31 @@ body {
 .main_area {
     margin-top: 63px;
     width: 100%;
+    height: 730px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 60px;
 }
-
-.first_area {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.img_main{
+    margin-top: 70px;
+    margin-bottom: 165px;
+}
+.t1{
+    margin-top: -23px;
+    margin-bottom: 54px;
+}
+.t2{
+    margin-top: 35px;
+    margin-bottom: 62px;
+}
+.text{
+    font-size: 15px;
+    margin-top: -500px;
+    margin-left: -195px;
 }
 
-.temp_sensor {
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
 
-.text_area_sensor {
-    font-size: 12px;
-    font-weight: bold;
-    position: absolute;
-    top: 10px;
-    text-align: center;
-}
-
-.img_sensor  {
-    width: 50px;
-    height: 85px;
-    margin-top: 60px;
-}
-
-.rectangle {
-    width: 150px;
-    height: 15px;
-    background-color: red;
-    margin-top: 30px;
-    border-radius: 22px;
-}
-
-.temp_text_sensor {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    width: 150px;
-    height: 20px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-.temp_outside {
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-.text_area_outside {
-    font-size: 12px;
-    font-weight: bold;
-    position: absolute;
-    top: 10px;
-    text-align: center;
-}
-
-.img_outside img {
-    width: 77px;
-    height: 73px;
-    margin-top: 60px;
-}
-
-.temp_text_outside {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    width: 94px;
-    height: 41px;
-    margin-top: 30px;
-}
-
-.relay_area {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 50px;
-}
-
-.text_area_relay {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.relay_images {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-.img_relay_on img {
-    width: 120px;
-    height: 120px;
-    background-color: #ddd;
-}
- .img_relay_off img {
-    width: 125px;
-    height: 125px;
-    background-color: #ddd;
-     margin-top: 5px;
-     margin-bottom: 15px;
-}
-.button_on, .button_off {
-    border: none;
-    background-color: white;
-    cursor: pointer;
-}
-
-.text_status_relay {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.rectangle_color_status {
-    width: 116px;
-    height: 10px;
-    background-color: green;
-    border-radius: 4px;
-}
 
 /* Media Query for smaller screens */
 @media (max-width: 420px) {
@@ -199,33 +83,5 @@ body {
         height: 100%; /* Встановлюємо висоту 100vh, щоб контейнер заповнив весь екран */
         margin: 0;
     }
-
-    .first_area, .relay_area {
-        flex-direction: column;
-    }
-
-    .temp_sensor, .temp_outside {
-        width: 100%;
-        text-align: center;
-    }
-
-    .img_sensor  {
-        margin-top: 50px;
-    }
-    .img_sensor {
-
-    }
-    .img_outside img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .img_relay_on img {
-        width: 100px;
-        height: 100px;
-    }
-    .img_relay_off img{
-        width: 106px;
-        height: 100px;
-    }
 }
+
