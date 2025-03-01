@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('/temperature');
             const data = await response.json();
 
-            temp1.textContent = data.T1 !== null ? `${data.T1}°C` : '—';
-            temp2.textContent = data.T2 !== null ? `${data.T2}°C` : '—';
-            temp3.textContent = data.T3 !== null ? `${data.T3}°C` : '—';
+            temp1.textContent = data.T1 !== null ? `${Math.round(data.T1)}°C` : '—';
+            temp2.textContent = data.T2 !== null ? `${Math.round(data.T2)}°C` : '—';
+            temp3.textContent = data.T3 !== null ? `${Math.round(data.T3)}°C` : '—';
         } catch (error) {
             console.error('Помилка отримання температури:', error);
         }
     }
 
     fetchTemperature();
-    setInterval(fetchTemperature, 5000);
+    setInterval(fetchTemperature, 3000);
 });
