@@ -13,8 +13,11 @@ const __dirname = path.dirname(__filename);
 app.use(cors());
 app.use(express.static(__dirname)); // Віддає файли з поточної директорії
 
-const mqttBroker = 'mqtt://mqtt.eclipseprojects.io'; 
-const mqttClient = mqtt.connect(mqttBroker);
+const mqttBroker = 'mqtt://broker.emqx.io'; // Оновлений MQTT брокер
+const mqttClient = mqtt.connect(mqttBroker, {
+    keepalive: 60,
+    reconnectPeriod: 5000, // Автоматичне підключення кожні 5 секунд
+});
 
 const tempTopic = 'esp/temperature';
 const resetTopic = 'esp/reset';
