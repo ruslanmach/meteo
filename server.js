@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 app.use(cors());
 app.use(express.static(__dirname)); // Віддає файли з поточної директорії
 
-const mqttBroker = 'mqtt://test.mosquitto.org';
+const mqttBroker = 'mqtt://broker.hivemq.com';
 const mqttClient = mqtt.connect(mqttBroker);
 
 const tempTopic = 'esp/temperature';
