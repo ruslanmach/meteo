@@ -53,3 +53,20 @@ app.get('/reset', (req, res) => {
 app.listen(port, () => {
     console.log(`Сервер запущено на http://localhost:${port}`);
 });
+let mqttStatus = 'Offline';  // Статус підключення
+
+mqttClient.on('connect', () => {
+    console.log('Підключено до MQTT брокера');
+    mqttStatus = 'Online';  // Плата онлайн
+    mqttClient.subscribe(tempTopic);
+});
+
+mqttClient.on('error', () => {
+    console.log('Помилка підключення до MQTT брокера');
+    mqttStatus = 'Offline';  // Плата офлайн
+});
+
+app.get('/status', (req, res) => {
+    res.json({ status: mqttStatus });  // Надсилаємо статус
+});
+
